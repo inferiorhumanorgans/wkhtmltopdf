@@ -433,7 +433,11 @@ QWebPage * MultiPageLoader::addResource(const QString & string) {
 	if (url == "-") {
 		QFile in;
 		in.open(stdin,QIODevice::ReadOnly);
-		url = d->tempIn.create(".html");
+		if (d->settings.forceXHTML) {
+		  url = d->tempIn.create(".xhtml");
+		} else {
+		  url = d->tempIn.create(".html");
+		}
 		QFile tmp(url);
 		if(!tmp.open(QIODevice::WriteOnly) || !copyFile(in, tmp)) {
 			emit error("Unable to create temporery file");

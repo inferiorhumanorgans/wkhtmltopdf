@@ -476,6 +476,7 @@ CommandLineParserPrivate::CommandLineParserPrivate(Settings & s):
 	qthack(false);
 	
 	extended(true);
+	addarg("force-xhtml", 0, "Put Qt into super strict XHTML mode", new ConstSetter<bool>(s.forceXHTML, true, false) );
 	addarg("ignore-load-errors", 0, "Ignore pages that claimes to have encountered an error during loading", new ConstSetter<bool>(s.ignoreLoadErrors, true, false));
 	addarg("custom-header",0,"Set an additional HTTP header (repeatable)", new MapSetter<>(s.customHeaders, "name", "value"));
 	addarg("manpage", 0, "Output program man page", new Caller<ManPageFunc>());

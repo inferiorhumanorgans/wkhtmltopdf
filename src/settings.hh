@@ -189,6 +189,8 @@ struct Settings {
 	QList< QPair<QString, QString> > customHeaders;
 	//! Should we read arguments from stdin
 	bool readArgsFromStdin;
+	//! Should we force XHTML mode for stdin
+	bool forceXHTML;
 	//! Map of cookies
 	QList< QPair<QString, QString> > cookies;
 	//! Replacements
